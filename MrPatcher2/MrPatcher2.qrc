@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/MrPatcher2">
+        <file>Resources/MrPatch.ico</file>
+    </qresource>
+</RCC>
