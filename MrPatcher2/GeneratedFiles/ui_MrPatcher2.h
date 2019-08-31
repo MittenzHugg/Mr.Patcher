@@ -36,6 +36,7 @@ class Ui_MrPatcher2Class
 public:
     QAction *file_openROM_action;
     QAction *export_decomp_action;
+    QAction *text_editor_action;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QHBoxLayout *horizontalLayout_2;
@@ -78,6 +79,10 @@ public:
         export_decomp_action = new QAction(MrPatcher2Class);
         export_decomp_action->setObjectName(QString::fromUtf8("export_decomp_action"));
         export_decomp_action->setEnabled(false);
+        text_editor_action = new QAction(MrPatcher2Class);
+        text_editor_action->setObjectName(QString::fromUtf8("text_editor_action"));
+        text_editor_action->setEnabled(false);
+        text_editor_action->setVisible(true);
         centralWidget = new QWidget(MrPatcher2Class);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -226,6 +231,7 @@ public:
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuTools = new QMenu(menuBar);
         menuTools->setObjectName(QString::fromUtf8("menuTools"));
+        menuTools->setEnabled(false);
         MrPatcher2Class->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MrPatcher2Class);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -239,6 +245,7 @@ public:
         menuFile->addAction(file_openROM_action);
         menuFile->addSeparator();
         menuFile->addAction(export_decomp_action);
+        menuTools->addAction(text_editor_action);
 
         retranslateUi(MrPatcher2Class);
 
@@ -250,6 +257,7 @@ public:
         MrPatcher2Class->setWindowTitle(QCoreApplication::translate("MrPatcher2Class", "Mr. Patcher", nullptr));
         file_openROM_action->setText(QCoreApplication::translate("MrPatcher2Class", "Open ROM", nullptr));
         export_decomp_action->setText(QCoreApplication::translate("MrPatcher2Class", "Export Decompressed", nullptr));
+        text_editor_action->setText(QCoreApplication::translate("MrPatcher2Class", "Text Editor", nullptr));
         out_rom_label->setText(QCoreApplication::translate("MrPatcher2Class", "Output ROM:", nullptr));
         out_rom_button->setText(QCoreApplication::translate("MrPatcher2Class", "...", nullptr));
         patch_file_label->setText(QCoreApplication::translate("MrPatcher2Class", "Patch File", nullptr));

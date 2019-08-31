@@ -28,7 +28,7 @@ bk_file::bk_file(uint32_t offset, uint32_t size, uint8_t* rom_ptr, bk_file_type_
 }
 
 bk_file::~bk_file() {
-
+	clear_buffers();
 }
 
 uint8_t* bk_file::decomp(void) {
@@ -65,6 +65,20 @@ uint8_t* bk_file::decomp(void) {
 		}
 	}
 	return uncomp_buffer;
+}
+
+void bk_file::get_checksums(uint32_t * crc1, uint32_t * crc2) {
+	if (uncomp_buffer == nullptr) decomp();
+	int32_t val = 0;
+	int32_t crc = 0xFFFFFFFF;
+	for (uint32_t i = 0; i < uncomp_size; i++) {
+		int32_t byte = (int32_t)uncomp_buffer[i];
+		val = val + byte;
+		crc = crc ^ (byte << (val & 0x17));
+	}
+	*crc1 = (uint32_t) val;
+	*crc2 = (uint32_t)crc;
+	return;
 }
 
 uint8_t* bk_file::comp(bool pad) {

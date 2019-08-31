@@ -241,9 +241,13 @@
     <addaction name="export_decomp_action"/>
    </widget>
    <widget class="QMenu" name="menuTools">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="title">
      <string>Tools</string>
     </property>
+    <addaction name="text_editor_action"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuTools"/>
@@ -268,6 +272,17 @@
    </property>
    <property name="text">
     <string>Export Decompressed</string>
+   </property>
+  </action>
+  <action name="text_editor_action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Text Editor</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
    </property>
   </action>
  </widget>

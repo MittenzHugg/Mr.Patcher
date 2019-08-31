@@ -69,6 +69,9 @@
     <ClCompile Include="crc_n64.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QtBKTextEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MrPatcher2.h">
@@ -77,9 +80,15 @@
     <QtMoc Include="patchObj.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="QtBKTextEditor.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MrPatcher2.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="QtBKTextEditor.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

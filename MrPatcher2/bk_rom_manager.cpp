@@ -56,7 +56,6 @@ bk_rom_manager::bk_rom_manager(n64_rom* inROM) {
 	tmp_rom_size -= asm_code[basicLibs]->comp_size;
 	asm_vars[basicLibs] = new bk_file(tmp_rom_offset, tmp_rom_size, bk_rom->buffer, bk_file_types::ASM_VAR, true, tmp_ram_offset);
 
-
 	//game engine asm
 	tmp_rom_offset = getAddressFromLI(asm_code[bootloader], 0x17FA, 0x1822);
 	tmp_ram_offset = getAddressFromLI(asm_code[basicLibs], 0x0E, 0x1A);
@@ -162,8 +161,11 @@ void bk_rom_manager::export_rom(char* dir) {
 		ofile = fopen(ofp, "wb");
 		asm_code[i]->decomp();
 		asm_vars[i]->decomp();
+		//fwrite(asm_code[i]->rom_buffer, sizeof(uint8_t), asm_code[i]->comp_size, ofile);
+		//fwrite(asm_vars[i]->rom_buffer, sizeof(uint8_t), asm_vars[i]->comp_size, ofile);
 		fwrite(asm_code[i]->uncomp_buffer, sizeof(uint8_t), asm_code[i]->uncomp_size, ofile);
 		fwrite(asm_vars[i]->uncomp_buffer, sizeof(uint8_t), asm_vars[i]->uncomp_size, ofile);
+		
 		fclose(ofile);
 		asm_code[i]->clear_buffers();
 		prog.setValue(++cur_prog);
@@ -261,6 +263,11 @@ void bk_rom_manager::export_rom(char* dir) {
 			if (ofile != NULL) {
 				fwrite(dynFile.uncomp_buffer, sizeof(uint8_t), dynFile.uncomp_size, ofile);
 				fclose(ofile);
+				dynFile.clear_buffers();
+			}
+			else {
+				dynFile.clear_buffers();
+				return;
 			}
 		}
 		prog.setValue(++cur_prog);
@@ -393,15 +400,77 @@ void bk_rom_manager::applyPatches(patchObj* patch_list) {
 	//modify stick speed to ignore checksum
 	if (asm_code[engine]->modified) {
 		//Rare Devs are artful dicks.
-		uint32_t stick_mult_offset = 0x2330;
-		if (bk_rom->gameID == BANJOKAZOOIE_NTSC) {
-			stick_mult_offset = 0x2460;
+		uint32_t crc1;
+		uint32_t crc2;
+		asm_code[engine]->get_checksums(&crc1,&crc2);
+		
+		uint32_t eng_var_off;
+		switch (bk_rom->gameID)
+		{
+		case BANJOKAZOOIE_NTSC:
+		case BANJOKAZOOIE_NTSC_REV1:
+			eng_var_off = 0xF264;
+			break;
+		case BANJOKAZOOIE_PAL:
+			eng_var_off = 0xF374;
+			break;
+		case BANJOKAZOOIE_JP:
+			eng_var_off = 0xFA24;
+			break;
+		default:
+			break;
 		}
-		uint8_t* norm_stick_speed_ptr = asm_vars[basicLibs]->uncomp_buffer + stick_mult_offset;
-		memcpy(norm_stick_speed_ptr + 0x04, norm_stick_speed_ptr, sizeof(uint8_t) * 4);
-		asm_vars[basicLibs]->modified = true;
-	}
 
+		n64_set_word(asm_vars[engine]->uncomp_buffer + eng_var_off, crc2);
+		asm_vars[engine]->modified = true;
+	}
+	if (asm_vars[engine]->modified) {
+		//Rare Devs are artful dicks.
+		uint32_t crc1;
+		uint32_t crc2;
+		asm_vars[engine]->get_checksums(&crc1, &crc2);
+
+		uint32_t libs_var_off;
+		switch (bk_rom->gameID)
+		{
+		case BANJOKAZOOIE_NTSC:
+			libs_var_off = 0xF64;
+			break;
+		case BANJOKAZOOIE_NTSC_REV1:
+		case BANJOKAZOOIE_PAL:
+		case BANJOKAZOOIE_JP:
+			libs_var_off = 0xE54;
+			break;
+		default:
+			break;
+		}
+
+		n64_set_word(asm_vars[basicLibs]->uncomp_buffer + libs_var_off, crc2);
+		asm_vars[basicLibs]->modified = true;
+	
+	}
+	if (asm_code[basicLibs]->modified) {
+		//Rare Devs are artful dicks.
+		uint32_t crc1;
+		uint32_t crc2;
+		asm_code[basicLibs]->get_checksums(&crc1, &crc2);
+
+		uint32_t rom_off = 0x5E78;
+
+		n64_set_word(bk_rom->buffer + rom_off, crc1);
+		n64_set_word(bk_rom->buffer + rom_off + 0x04, crc2);
+	}
+	if (asm_vars[basicLibs]->modified) {
+		//Rare Devs are artful dicks.
+		uint32_t crc1;
+		uint32_t crc2;
+		asm_vars[basicLibs]->get_checksums(&crc1, &crc2);
+
+		uint32_t rom_off = 0x5E80;
+
+		n64_set_word(bk_rom->buffer + rom_off, crc1);
+		n64_set_word(bk_rom->buffer + rom_off + 0x04, crc2);
+	}
 	//CUSTOM BOOT CODE FOR EXPANSION PAK CODE
 	if (asm_code[expansion_pak]->modified) {
 		//change bootloader

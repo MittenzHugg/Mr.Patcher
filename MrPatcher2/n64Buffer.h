@@ -14,3 +14,11 @@ void n64_set_half(uint8_t* dst, uint16_t src) {
 	*(dst + 1) = (uint8_t)(src & 0x00FF);
 	return;
 };
+
+void n64_set_word(uint8_t* dst, uint32_t src) {
+	*dst = (uint8_t)((src & 0xFF000000) >> 24);
+	*(dst + 1) = (uint8_t)((src & 0x00FF0000) >> 16);
+	*(dst + 2) = (uint8_t)((src & 0x0000FF00) >> 8);
+	*(dst + 3) = (uint8_t)(src & 0x000000FF);
+	return;
+};

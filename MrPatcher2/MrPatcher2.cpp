@@ -19,14 +19,6 @@ MrPatcher2::MrPatcher2(QWidget* parent)
 	ui.setupUi(this);
 
 	path = "";
-	//ArmipsArguments parameters;
-	//parameters.inputFileName = 
-	//StringList arguments =
-	//runArmips(parameters);
-	////patch_list = new patchObj(ui,ui.patch_grid,1);
-	////patch_list->headPtr = &patch_list;
-	////patch_list->setEnabled(false);
-	////connect(ui.patch_list, SIGNAL(fileSelected()), this, SLOT(patchPatch()));
 
 	connect(ui.in_rom_button, SIGNAL(clicked()), this, SLOT(openROM()));
 	connect(ui.file_openROM_action, SIGNAL(triggered()), this, SLOT(openROM()));
@@ -59,10 +51,6 @@ void	MrPatcher2::openROM(void){
 	ui.out_rom_lineEdit->setText(out_fileName);
 
 	ui.in_rom_lineEdit->setText("");
-	//patch_list->freeAll();
-	//patch_list = new patchObj(this, ui.patch_grid, 1);
-	//patch_list->headPtr = &patch_list;
-	//patch_list->setEnabled(false);
 	if (inputROM != nullptr) {
 		delete inputROM;
 	}
@@ -75,35 +63,35 @@ void	MrPatcher2::openROM(void){
 	}
 	ui.in_rom_lineEdit->setText(in_fileName);
 
-	//make BK objs
 	switch (inputROM->gameID) {
 	case BANJOKAZOOIE_NTSC:
 		ui.statusBar->showMessage("Banjo-Kazooie: NTSC-U v1.0");
-		if (bk_rom_mngr != nullptr) {
-			delete bk_rom_mngr;
-		}
-		bk_rom_mngr = new bk_rom_manager(inputROM);
 		break;
 	case BANJOKAZOOIE_NTSC_REV1:
 		ui.statusBar->showMessage("Banjo-Kazooie: NTSC-U v1.1");
-		if (bk_rom_mngr != nullptr) {
-			delete bk_rom_mngr;
-		}
-		bk_rom_mngr = new bk_rom_manager(inputROM);
 		break;
 	case BANJOKAZOOIE_PAL:
 		ui.statusBar->showMessage("Banjo-Kazooie: PAL");
-		if (bk_rom_mngr != nullptr) {
-			delete bk_rom_mngr;
-		}
-		bk_rom_mngr = new bk_rom_manager(inputROM);
 		break;
 	case BANJOKAZOOIE_JP:
 		ui.statusBar->showMessage("Banjo-Kazooie: JP");
+		break;
+	default:
+		break;
+	}
+
+	//make BK objs
+	switch (inputROM->gameID) {
+	case BANJOKAZOOIE_NTSC:
+	case BANJOKAZOOIE_NTSC_REV1:
+	case BANJOKAZOOIE_PAL:
+	case BANJOKAZOOIE_JP:
 		if (bk_rom_mngr != nullptr) {
 			delete bk_rom_mngr;
 		}
 		bk_rom_mngr = new bk_rom_manager(inputROM);
+		ui.text_editor_action->setEnabled(true);
+		//connect(ui.text_editor_action, SIGNAL(triggered()), this, SLOT(BK_TextEditor_Opened()));
 		break;
 	default:
 		break;
@@ -119,6 +107,9 @@ void	MrPatcher2::openROM(void){
 	ui.patchROM_button->setEnabled(true);
 
 	ui.export_decomp_action->setEnabled(true);
+
+	//ui.menuTools->setEnabled(true);
+
 
 	return;
 }
@@ -267,4 +258,9 @@ void	MrPatcher2::exportDecomp(void) {
 	default:
 		break;
 	}
+}
+
+void	MrPatcher2::BK_TextEditor_Opened(void) {
+	txt_editor = new QtBKTextEditor();
+	txt_editor->show();
 }

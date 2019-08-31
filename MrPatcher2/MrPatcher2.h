@@ -6,6 +6,7 @@
 #include "n64_rom.h"
 #include "bk_rom_manager.h"
 #include "patchObj.h"
+#include "QtBKTextEditor.h"
 
 class MrPatcher2 : public QMainWindow
 {
@@ -29,6 +30,8 @@ private:
 
 	patchObj* patchList = nullptr;
 
+	QtBKTextEditor* txt_editor;
+
 public slots:
 	void	openROM(void);
 	void	selectOutROM(void);
@@ -36,4 +39,5 @@ public slots:
 	void	openPatch(void);
 	void	remove_patch(int row);
 	void    exportDecomp(void);
+	void	BK_TextEditor_Opened(void);
 };
