@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Header Files\n64">
+      <UniqueIdentifier>{17181513-a36f-45b5-9cbd-4421076aef26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\bk">
+      <UniqueIdentifier>{6b7bf6c5-bc83-4397-a2b9-01168526a63d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{2b7712f8-47fb-4c0c-b44c-19c07d3c4610}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\bk">
+      <UniqueIdentifier>{2c581c1e-2497-4c9b-bd8d-2e59fe992430}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\n64">
+      <UniqueIdentifier>{d5d6ed83-3b74-47ef-bbd7-25152a950da2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\editors">
+      <UniqueIdentifier>{6ac4a3e5-db93-401f-9dcf-833a3630bcc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MrP">
+      <UniqueIdentifier>{cc1883b4-46f3-42fb-b7b3-59e2cc86fcd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MrP">
+      <UniqueIdentifier>{89952298-a26c-4613-b7c9-b081dd72413b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\bt">
+      <UniqueIdentifier>{e7b6c1d7-f5c2-4065-af05-1033eddf18c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\bt">
+      <UniqueIdentifier>{3764d175-76f7-47d1-a7b3-fc37fba1fe30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dk64">
+      <UniqueIdentifier>{900280cd-2015-4948-bea2-50a14b901725}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI\editors">
+      <UniqueIdentifier>{ca5d7b7d-b1c8-4f00-af8a-59c7bc768872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dk64">
+      <UniqueIdentifier>{ec740670-aab1-4a35-9305-b8e3076b4b98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\editors\Audio_Converter">
+      <UniqueIdentifier>{6d57cb65-3904-492f-abaf-2dd6ab0df85e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="n64_rom.cpp">
+      <Filter>Source Files\n64</Filter>
+    </ClCompile>
+    <ClCompile Include="N64\md5.c">
+      <Filter>Source Files\n64</Filter>
+    </ClCompile>
+    <ClCompile Include="bk_rom_manager.cpp">
+      <Filter>Source Files\bk</Filter>
+    </ClCompile>
+    <ClCompile Include="bk_file.cpp">
+      <Filter>Source Files\bk</Filter>
+    </ClCompile>
+    <ClCompile Include="gs_parser.cpp">
+      <Filter>Source Files\n64</Filter>
+    </ClCompile>
+    <ClCompile Include="MrPatcher2.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="patchObj.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="QtBKTextEditor.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="crc_n64.c">
+      <Filter>Source Files\n64</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="n64_file.cpp">
+      <Filter>Source Files\n64</Filter>
+    </ClCompile>
+    <ClCompile Include="bk_asm_file.cpp">
+      <Filter>Source Files\bk</Filter>
+    </ClCompile>
+    <ClCompile Include="bk_rom.cpp">
+      <Filter>Source Files\bk</Filter>
+    </ClCompile>
+    <ClCompile Include="bk_asset.cpp">
+      <Filter>Source Files\bk</Filter>
+    </ClCompile>
+    <ClCompile Include="gs_patcher.cpp">
+      <Filter>Source Files\GUI\editors</Filter>
+    </ClCompile>
+    <ClCompile Include="bk_model.cpp">
+      <Filter>Source Files\bk</Filter>
+    </ClCompile>
+    <ClCompile Include="bt_rom.cpp">
+      <Filter>Source Files\bt</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundFont2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="f3dex2.cpp">
+      <Filter>Source Files\n64</Filter>
+    </ClCompile>
+    <ClCompile Include="GLModelWidget.cpp">
+      <Filter>Source Files\GUI\editors</Filter>
+    </ClCompile>
+    <ClCompile Include="QtModelViewWidget.cpp">
+      <Filter>Source Files\GUI\editors</Filter>
+    </ClCompile>
+    <ClCompile Include="ALBankFile.cpp">
+      <Filter>Source Files\n64</Filter>
+    </ClCompile>
+    <ClCompile Include="dk64_asset.cpp">
+      <Filter>Source Files\dk64</Filter>
+    </ClCompile>
+    <ClCompile Include="dk64_rom.cpp">
+      <Filter>Source Files\dk64</Filter>
+    </ClCompile>
+    <ClCompile Include="BK_project.cpp">
+      <Filter>Source Files\bk</Filter>
+    </ClCompile>
+    <ClCompile Include="MrP_project.cpp">
+      <Filter>Source Files\MrP</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MrPatcher2.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QtModelViewWidget.h">
+      <Filter>Header Files\editors</Filter>
+    </QtMoc>
+    <QtMoc Include="QtBKTextEditor.h">
+      <Filter>Header Files\editors</Filter>
+    </QtMoc>
+    <QtMoc Include="GLModelWidget.h">
+      <Filter>Header Files\editors</Filter>
+    </QtMoc>
+    <QtMoc Include="patchObj.h">
+      <Filter>Header Files\editors</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="MrPatcher2.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="QtBKTextEditor.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="QtModelViewWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="MrPatcher2.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bk_file.h">
+      <Filter>Header Files\bk</Filter>
+    </ClInclude>
+    <ClInclude Include="bk_rom_manager.h">
+      <Filter>Header Files\bk</Filter>
+    </ClInclude>
+    <ClInclude Include="N64\md5.h">
+      <Filter>Header Files\n64</Filter>
+    </ClInclude>
+    <ClInclude Include="n64_rom.h">
+      <Filter>Header Files\n64</Filter>
+    </ClInclude>
+    <ClInclude Include="n64Buffer.h">
+      <Filter>Header Files\n64</Filter>
+    </ClInclude>
+    <ClInclude Include="bk_enums.h">
+      <Filter>Header Files\bk</Filter>
+    </ClInclude>
+    <ClInclude Include="gs_parser.h">
+      <Filter>Header Files\n64</Filter>
+    </ClInclude>
+    <ClInclude Include="n64_file.h">
+      <Filter>Header Files\n64</Filter>
+    </ClInclude>
+    <ClInclude Include="n64_span.h">
+      <Filter>Header Files\n64</Filter>
+    </ClInclude>
+    <ClInclude Include="bk_asm_file.h">
+      <Filter>Header Files\bk</Filter>
+    </ClInclude>
+    <ClInclude Include="bk_rom.h">
+      <Filter>Header Files\bk</Filter>
+    </ClInclude>
+    <ClInclude Include="bk_asset.h">
+      <Filter>Header Files\bk</Filter>
+    </ClInclude>
+    <ClInclude Include="gs_patcher.h">
+      <Filter>Header Files\editors</Filter>
+    </ClInclude>
+    <ClInclude Include="bk_model.h">
+      <Filter>Header Files\bk</Filter>
+    </ClInclude>
+    <ClInclude Include="MrP_Model.h">
+      <Filter>Header Files\MrP</Filter>
+    </ClInclude>
+    <ClInclude Include="bt_rom.h">
+      <Filter>Header Files\bt</Filter>
+    </ClInclude>
+    <ClInclude Include="crc_n64.h">
+      <Filter>Header Files\n64</Filter>
+    </ClInclude>
+    <ClInclude Include="ALBankFile.h">
+      <Filter>Header Files\n64</Filter>
+    </ClInclude>
+    <ClInclude Include="f3dex2.h">
+      <Filter>Header Files\n64</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundFont2.h">
+      <Filter>Header Files\editors</Filter>
+    </ClInclude>
+    <ClInclude Include="dk64_asset.h">
+      <Filter>Header Files\dk64</Filter>
+    </ClInclude>
+    <ClInclude Include="dk64_rom.h">
+      <Filter>Header Files\dk64</Filter>
+    </ClInclude>
+    <ClInclude Include="MrP_project.h">
+      <Filter>Header Files\MrP</Filter>
+    </ClInclude>
+    <ClInclude Include="BK_project.h">
+      <Filter>Header Files\bk</Filter>
+    </ClInclude>
+    <ClInclude Include="simpTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\MrPatch.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
